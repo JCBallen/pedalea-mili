@@ -1,4 +1,5 @@
-name: mili_pruebas
+name: pedalea_mili
+# Si algo se llamaba mili_pruebas, lo he cambiado a pedalea_mili
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
