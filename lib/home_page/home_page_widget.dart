@@ -167,7 +167,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: '|',
+                                        labelText: 'Digita tu correo institucional',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                         enabledBorder: UnderlineInputBorder(
@@ -248,7 +248,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: '|',
+                                        labelText: 'Digita tu contraseña',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                         enabledBorder: UnderlineInputBorder(
