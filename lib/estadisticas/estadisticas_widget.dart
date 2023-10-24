@@ -220,7 +220,7 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                                   ),
                                   DefaultTabController(
                                     length:
-                                        2, // El número de pestañas que deseas
+                                        2, 
                                     child: Column(
                                       children: [
                                         TabBar(
