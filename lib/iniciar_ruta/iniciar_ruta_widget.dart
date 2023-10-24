@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -37,8 +38,19 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -88,11 +100,11 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                       centerMapOnMarkerTap: true,
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.00, 0.00),
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.9),
+                            alignment: AlignmentDirectional(0.00, 0.90),
                             child: Container(
                               width: 346.0,
                               height: 265.0,
@@ -100,7 +112,7 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
                                       child: BackdropFilter(
@@ -110,7 +122,7 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Container(
                                             width: 350.0,
                                             height: 264.0,
@@ -125,7 +137,8 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -0.63),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -0.63),
                                     child: Container(
                                       width: 350.0,
                                       height: 30.0,
@@ -137,7 +150,7 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.8, 0.4),
+                                            AlignmentDirectional(0.80, 0.40),
                                         child: Text(
                                           'Estado: Hacia la Universidad',
                                           style: FlutterFlowTheme.of(context)
@@ -157,7 +170,7 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.3),
+                                    alignment: AlignmentDirectional(0.00, 0.30),
                                     child: Container(
                                       width: 264.0,
                                       height: 40.0,
@@ -167,12 +180,13 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Stack(
                                         children: [
                                           Align(
-                                            alignment:
-                                                AlignmentDirectional(-0.5, 0.0),
+                                            alignment: AlignmentDirectional(
+                                                -0.50, 0.00),
                                             child: Text(
                                               '3 personas en ruta',
                                               style: FlutterFlowTheme.of(
@@ -190,8 +204,8 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                             ),
                                           ),
                                           Align(
-                                            alignment:
-                                                AlignmentDirectional(0.7, 0.0),
+                                            alignment: AlignmentDirectional(
+                                                0.70, 0.00),
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
@@ -208,7 +222,8 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -1.08),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -1.08),
                                     child: Container(
                                       width: 350.0,
                                       height: 60.0,
@@ -225,12 +240,12 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Stack(
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.8, 0.0),
+                                                  0.80, 0.00),
                                               child: Text(
                                                 'Ruta Occidente',
                                                 style:
@@ -250,7 +265,7 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  -0.8, 0.0),
+                                                  -0.80, 0.00),
                                               child: Text(
                                                 '1',
                                                 style:
@@ -273,7 +288,8 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.3, -0.18),
+                                    alignment:
+                                        AlignmentDirectional(0.30, -0.18),
                                     child: Text(
                                       'Lider:\nCarlos Medina',
                                       textAlign: TextAlign.center,
@@ -291,7 +307,7 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                   ),
                                   Align(
                                     alignment:
-                                        AlignmentDirectional(-0.5, -0.21),
+                                        AlignmentDirectional(-0.50, -0.21),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.asset(
@@ -303,7 +319,7 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.8),
+                                    alignment: AlignmentDirectional(0.00, 0.80),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.pushNamed('UnirseaRuta');
@@ -365,7 +381,7 @@ class _IniciarRutaWidgetState extends State<IniciarRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: FaIcon(
                                       FontAwesomeIcons.userAlt,
                                       color: FlutterFlowTheme.of(context)

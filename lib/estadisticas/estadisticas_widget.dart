@@ -2,7 +2,9 @@ import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'estadisticas_model.dart';
@@ -35,8 +37,19 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -86,11 +99,11 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                       centerMapOnMarkerTap: true,
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.00, 0.00),
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.3),
+                            alignment: AlignmentDirectional(0.00, 0.30),
                             child: Container(
                               width: 346.0,
                               height: 650.0,
@@ -98,7 +111,7 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Container(
                                       width: double.infinity,
                                       height: double.infinity,
@@ -119,7 +132,8 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -1.08),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -1.08),
                                     child: Container(
                                       width: 350.0,
                                       height: 60.0,
@@ -136,12 +150,12 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Stack(
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.6, -0.5),
+                                                  0.60, -0.50),
                                               child: Text(
                                                 'Pepito Perez',
                                                 textAlign: TextAlign.end,
@@ -161,7 +175,7 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.0, 0.6),
+                                                  0.00, 0.60),
                                               child: Text(
                                                 'est.pepito.perez@unimilitar.edu.co',
                                                 style:
@@ -194,7 +208,7 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.95, 0.0),
+                                                  0.95, 0.00),
                                               child: FlutterFlowIconButton(
                                                 borderRadius: 20.0,
                                                 borderWidth: 1.0,
@@ -218,68 +232,53 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                                       ),
                                     ),
                                   ),
-                                  DefaultTabController(
-                                    length:
-                                        2, // El número de pestañas que deseas
-                                    child: Column(
-                                      children: [
-                                        TabBar(
-                                          tabs: [
-                                            Tab(text: 'Viajes'),
-                                            Tab(text: 'Estadísticas'),
-                                          ],
-                                        ),
-                                        TabBarView(
-                                          children: [
-                                            // Contenido de la pestaña 1
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Text(
-                                                'Contenido de la pestaña 1',
-                                                style:
+                                  Align(
+                                    alignment:
+                                        AlignmentDirectional(0.00, -0.89),
+                                    child: Container(
+                                      width: 350.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .customColor1,
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.80, 0.00),
+                                        child: Text(
+                                          'Estadísticas',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                          fontStyle:
-                                                              FontStyle.italic,
-                                                        ),
+                                                        .secondary,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.w900,
+                                                fontStyle: FontStyle.italic,
                                               ),
-                                            ),
-                                            // Contenido de la pestaña 2
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Text(
-                                                'Contenido de la pestaña 2',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                          fontStyle:
-                                                              FontStyle.italic,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                  )
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(0.00, 0.60),
+                                    child: Container(
+                                      width: 300.0,
+                                      height: 500.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
+                                      ),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),

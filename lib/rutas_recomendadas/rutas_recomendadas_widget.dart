@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -37,8 +39,19 @@ class _RutasRecomendadasWidgetState extends State<RutasRecomendadasWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -88,18 +101,18 @@ class _RutasRecomendadasWidgetState extends State<RutasRecomendadasWidget> {
                       centerMapOnMarkerTap: true,
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.00, 0.00),
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.9),
+                            alignment: AlignmentDirectional(0.00, 0.90),
                             child: Container(
                               height: 200.0,
                               child: Stack(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.6),
+                                    alignment: AlignmentDirectional(0.00, 0.60),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
                                       child: BackdropFilter(
@@ -120,7 +133,8 @@ class _RutasRecomendadasWidgetState extends State<RutasRecomendadasWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -0.5),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -0.50),
                                     child: Container(
                                       width: 350.0,
                                       height: 40.0,
@@ -136,7 +150,7 @@ class _RutasRecomendadasWidgetState extends State<RutasRecomendadasWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Text(
                                           'Rutas Recomendadas',
                                           style: FlutterFlowTheme.of(context)
@@ -152,7 +166,7 @@ class _RutasRecomendadasWidgetState extends State<RutasRecomendadasWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.5),
+                                    alignment: AlignmentDirectional(0.00, 0.50),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -174,7 +188,7 @@ class _RutasRecomendadasWidgetState extends State<RutasRecomendadasWidget> {
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  -0.5, -0.85),
+                                                  -0.50, -0.85),
                                               child: Text(
                                                 '1',
                                                 style:
@@ -208,7 +222,8 @@ class _RutasRecomendadasWidgetState extends State<RutasRecomendadasWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-0.25, 0.5),
+                                    alignment:
+                                        AlignmentDirectional(-0.25, 0.50),
                                     child: Container(
                                       width: 20.0,
                                       height: 70.0,
@@ -255,7 +270,7 @@ class _RutasRecomendadasWidgetState extends State<RutasRecomendadasWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: FaIcon(
                                       FontAwesomeIcons.userAlt,
                                       color: FlutterFlowTheme.of(context)

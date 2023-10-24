@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,9 @@ class _Registro1WidgetState extends State<Registro1Widget> {
     _model = createModel(context, () => Registro1Model());
 
     _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
     _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
   }
 
   @override
@@ -40,8 +43,19 @@ class _Registro1WidgetState extends State<Registro1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -50,7 +64,7 @@ class _Registro1WidgetState extends State<Registro1Widget> {
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.00, 1.00),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -73,14 +87,14 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.2),
+                alignment: AlignmentDirectional(0.00, 0.20),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.00, 0.00),
                         child: Image.asset(
                           'assets/images/char-bike.png',
                           width: 250.0,
@@ -102,14 +116,14 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.00, 0.00),
                         child: Container(
                           width: double.infinity,
                           child: Form(
                             key: _model.formKey,
                             autovalidateMode: AutovalidateMode.disabled,
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.75),
+                              alignment: AlignmentDirectional(0.00, 0.75),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
@@ -117,7 +131,7 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
@@ -139,7 +153,8 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-0.8, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-0.80, 0.00),
                                     child: Text(
                                       'Soy:',
                                       style: FlutterFlowTheme.of(context)
@@ -192,7 +207,8 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                                     isMultiSelect: false,
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-0.6, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-0.60, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
@@ -217,6 +233,7 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                                     width: 270.0,
                                     child: TextFormField(
                                       controller: _model.textController1,
+                                      focusNode: _model.textFieldFocusNode1,
                                       textCapitalization:
                                           TextCapitalization.none,
                                       obscureText: false,
@@ -280,7 +297,8 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-0.55, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-0.55, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
@@ -305,6 +323,7 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                                     width: 270.0,
                                     child: TextFormField(
                                       controller: _model.textController2,
+                                      focusNode: _model.textFieldFocusNode2,
                                       textCapitalization:
                                           TextCapitalization.none,
                                       obscureText: false,
@@ -366,7 +385,8 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-0.8, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-0.80, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
@@ -419,7 +439,7 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                                     isMultiSelect: false,
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    alignment: AlignmentDirectional(0.00, 1.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 20.0, 20.0, 10.0),
@@ -513,7 +533,7 @@ class _Registro1WidgetState extends State<Registro1Widget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.97),
+                        alignment: AlignmentDirectional(0.00, 0.97),
                         child: Image.asset(
                           'assets/images/umng-logo.png',
                           width: 51.0,

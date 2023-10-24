@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     _model = createModel(context, () => HomePageModel());
 
     _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
     _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
   }
 
   @override
@@ -38,8 +41,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -48,7 +62,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.00, 1.00),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -71,14 +85,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.5),
+                alignment: AlignmentDirectional(0.00, 0.50),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.00, 0.00),
                         child: Image.asset(
                           'assets/images/char-bike.png',
                           width: 250.0,
@@ -87,7 +101,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.5),
+                        alignment: AlignmentDirectional(0.00, 0.50),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 15.0, 0.0, 0.0),
@@ -100,14 +114,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.00, 0.00),
                         child: Container(
                           width: double.infinity,
                           child: Form(
                             key: _model.formKey,
                             autovalidateMode: AutovalidateMode.always,
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment:
@@ -115,7 +129,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
@@ -137,7 +151,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-0.8, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-0.80, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
@@ -162,12 +177,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     width: 270.0,
                                     child: TextFormField(
                                       controller: _model.textController1,
+                                      focusNode: _model.textFieldFocusNode1,
                                       textCapitalization:
                                           TextCapitalization.none,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: 'Digita tu correo institucional',
+                                        labelText: '|',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                         enabledBorder: UnderlineInputBorder(
@@ -218,7 +234,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-0.75, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-0.75, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 5.0, 5.0, 5.0),
@@ -243,12 +260,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     width: 270.0,
                                     child: TextFormField(
                                       controller: _model.textController2,
+                                      focusNode: _model.textFieldFocusNode2,
                                       textCapitalization:
                                           TextCapitalization.none,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
-                                        labelText: 'Digita tu contraseña',
+                                        labelText: '|',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                         enabledBorder: UnderlineInputBorder(
@@ -343,7 +361,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -351,7 +369,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Text(
                                             'Si ya tienes una cuenta',
                                             style: FlutterFlowTheme.of(context)
@@ -369,7 +387,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               context.pushNamed('Registro');
@@ -416,7 +434,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.97),
+                        alignment: AlignmentDirectional(0.00, 0.97),
                         child: Image.asset(
                           'assets/images/umng-logo.png',
                           width: 51.0,

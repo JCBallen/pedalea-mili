@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'inicio_alt_model.dart';
@@ -33,8 +35,19 @@ class _InicioAltWidgetState extends State<InicioAltWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -43,7 +56,7 @@ class _InicioAltWidgetState extends State<InicioAltWidget> {
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, -0.27),
+                alignment: AlignmentDirectional(0.00, -0.27),
                 child: Image.asset(
                   'assets/images/Edificios.png',
                   width: double.infinity,
@@ -52,7 +65,7 @@ class _InicioAltWidgetState extends State<InicioAltWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.00, 1.00),
                 child: Container(
                   width: double.infinity,
                   height: 500.0,
@@ -94,7 +107,7 @@ class _InicioAltWidgetState extends State<InicioAltWidget> {
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.25, 0.0),
+                                    alignment: AlignmentDirectional(0.25, 0.00),
                                     child: Text(
                                       'Google\n@unimilitar.edu.co',
                                       textAlign: TextAlign.center,
@@ -109,7 +122,8 @@ class _InicioAltWidgetState extends State<InicioAltWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-0.8, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-0.80, 0.00),
                                     child: Container(
                                       width: 35.0,
                                       height: 35.0,
@@ -146,7 +160,7 @@ class _InicioAltWidgetState extends State<InicioAltWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, -0.45),
+                alignment: AlignmentDirectional(0.00, -0.45),
                 child: Image.asset(
                   'assets/images/char-bike.png',
                   width: 250.0,
@@ -155,7 +169,7 @@ class _InicioAltWidgetState extends State<InicioAltWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.23),
+                alignment: AlignmentDirectional(0.00, 0.23),
                 child: Image.asset(
                   'assets/images/Logo-Pedalea.png',
                   width: 315.0,
@@ -164,7 +178,7 @@ class _InicioAltWidgetState extends State<InicioAltWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.47),
+                alignment: AlignmentDirectional(0.00, 0.47),
                 child: Text(
                   'Identifíquese usando su cuenta\nen:',
                   textAlign: TextAlign.center,

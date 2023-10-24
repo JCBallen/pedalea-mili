@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -37,8 +38,19 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -88,11 +100,11 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                       centerMapOnMarkerTap: true,
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.00, 0.00),
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.9),
+                            alignment: AlignmentDirectional(0.00, 0.90),
                             child: Container(
                               width: 346.0,
                               height: 353.0,
@@ -100,7 +112,8 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -1.0),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -1.00),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
                                       child: BackdropFilter(
@@ -110,7 +123,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.00, 0.00),
                                           child: Container(
                                             width: 350.0,
                                             height: 358.0,
@@ -125,7 +138,8 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -0.75),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -0.75),
                                     child: Container(
                                       width: 350.0,
                                       height: 30.0,
@@ -137,7 +151,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.8, 0.4),
+                                            AlignmentDirectional(0.80, 0.40),
                                         child: Text(
                                           'Estado: Hacia la Universidad',
                                           style: FlutterFlowTheme.of(context)
@@ -157,7 +171,8 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -0.4),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -0.40),
                                     child: Container(
                                       width: 268.0,
                                       height: 37.0,
@@ -174,15 +189,16 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Stack(
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  -0.8, 0.0),
+                                                  -0.80, 0.00),
                                               child: Text(
                                                 'Seleccionar Punto',
                                                 style:
@@ -202,7 +218,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.9, 0.5),
+                                                  0.90, 0.50),
                                               child: Text(
                                                 'Punto Sugerido',
                                                 style:
@@ -227,7 +243,8 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -1.08),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -1.08),
                                     child: Container(
                                       width: 350.0,
                                       height: 60.0,
@@ -244,12 +261,12 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Stack(
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  -0.8, 0.0),
+                                                  -0.80, 0.00),
                                               child: Text(
                                                 '1',
                                                 style:
@@ -268,7 +285,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.8, 0.0),
+                                                  0.80, 0.00),
                                               child: Text(
                                                 'Ruta Occidente',
                                                 style:
@@ -292,14 +309,14 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.3),
+                                    alignment: AlignmentDirectional(0.00, 0.30),
                                     child: Container(
                                       width: 313.0,
                                       height: 130.0,
                                       decoration: BoxDecoration(),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, -1.0),
+                                            AlignmentDirectional(0.00, -1.00),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -309,7 +326,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.0, -1.0),
+                                                  0.00, -1.00),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -498,7 +515,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.0, 0.0),
+                                                          -1.00, 0.00),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -527,7 +544,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.0, 0.0),
+                                                          -1.00, 0.00),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -554,7 +571,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.0, 0.0),
+                                                          -1.00, 0.00),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -578,7 +595,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.0, 0.0),
+                                                          -1.00, 0.00),
                                                   child: Text(
                                                     'Exito 80 - 8:15 A.M.',
                                                     style: FlutterFlowTheme.of(
@@ -601,7 +618,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.85),
+                                    alignment: AlignmentDirectional(0.00, 0.85),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         context.pushNamed('YaenRuta');
@@ -665,7 +682,7 @@ class _UnirseaRutaWidgetState extends State<UnirseaRutaWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.00, 0.00),
                                     child: FaIcon(
                                       FontAwesomeIcons.userAlt,
                                       color: FlutterFlowTheme.of(context)
