@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -52,7 +51,6 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        resizeToAvoidBottomInset: false,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
@@ -79,25 +77,6 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
               Expanded(
                 child: Stack(
                   children: [
-                    FlutterFlowGoogleMap(
-                      controller: _model.googleMapsController,
-                      onCameraIdle: (latLng) =>
-                          _model.googleMapsCenter = latLng,
-                      initialLocation: _model.googleMapsCenter ??=
-                          LatLng(4.624335, -74.063644),
-                      markerColor: GoogleMarkerColor.violet,
-                      mapType: MapType.normal,
-                      style: GoogleMapStyle.standard,
-                      initialZoom: 14.0,
-                      allowInteraction: true,
-                      allowZoom: true,
-                      showZoomControls: false,
-                      showLocation: true,
-                      showCompass: true,
-                      showMapToolbar: true,
-                      showTraffic: false,
-                      centerMapOnMarkerTap: true,
-                    ),
                     Align(
                       alignment: AlignmentDirectional(0.00, 0.00),
                       child: Stack(
