@@ -1,14 +1,8 @@
-import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'registro1_widget.dart' show Registro1Widget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:provider/provider.dart';
 
 class Registro1Model extends FlutterFlowModel<Registro1Widget> {
   ///  State fields for stateful widgets in this page.
