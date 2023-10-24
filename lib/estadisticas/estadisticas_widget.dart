@@ -218,51 +218,68 @@ class _EstadisticasWidgetState extends State<EstadisticasWidget> {
                                       ),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, -0.89),
-                                    child: Container(
-                                      width: 350.0,
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .customColor1,
-                                        borderRadius:
-                                            BorderRadius.circular(0.0),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.8, 0.0),
-                                        child: Text(
-                                          'Estadísticas',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                fontSize: 16.0,
-                                                fontWeight: FontWeight.w900,
-                                                fontStyle: FontStyle.italic,
-                                              ),
+                                  DefaultTabController(
+                                    length:
+                                        2, // El número de pestañas que deseas
+                                    child: Column(
+                                      children: [
+                                        TabBar(
+                                          tabs: [
+                                            Tab(text: 'Viajes'),
+                                            Tab(text: 'Estadísticas'),
+                                          ],
                                         ),
-                                      ),
+                                        TabBarView(
+                                          children: [
+                                            // Contenido de la pestaña 1
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                'Contenido de la pestaña 1',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.w900,
+                                                          fontStyle:
+                                                              FontStyle.italic,
+                                                        ),
+                                              ),
+                                            ),
+                                            // Contenido de la pestaña 2
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                'Contenido de la pestaña 2',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.w900,
+                                                          fontStyle:
+                                                              FontStyle.italic,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.6),
-                                    child: Container(
-                                      width: 300.0,
-                                      height: 500.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                        borderRadius:
-                                            BorderRadius.circular(20.0),
-                                      ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                    ),
-                                  ),
+                                  )
                                 ],
                               ),
                             ),
